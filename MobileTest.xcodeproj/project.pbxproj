@@ -15,6 +15,8 @@
 		AB8B74D326B49C8D000ED368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8B74D126B49C8D000ED368 /* LaunchScreen.storyboard */; };
 		AB8B74DE26B49C8E000ED368 /* MobileTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8B74DD26B49C8E000ED368 /* MobileTestTests.swift */; };
 		AB8B74E926B49C8E000ED368 /* MobileTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8B74E826B49C8E000ED368 /* MobileTestUITests.swift */; };
+		AB97A84226B4A01B00F969E9 /* UserLeapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB97A84126B4A01B00F969E9 /* UserLeapKit.framework */; };
+		AB97A84326B4A01B00F969E9 /* UserLeapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB97A84126B4A01B00F969E9 /* UserLeapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AB8B74FA26B49D30000ED368 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB97A84326B4A01B00F969E9 /* UserLeapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AB8B74C326B49C8C000ED368 /* MobileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8B74C626B49C8C000ED368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		AB8B74E426B49C8E000ED368 /* MobileTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8B74E826B49C8E000ED368 /* MobileTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTestUITests.swift; sourceTree = "<group>"; };
 		AB8B74EA26B49C8E000ED368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB97A84126B4A01B00F969E9 /* UserLeapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UserLeapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB97A84226B4A01B00F969E9 /* UserLeapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				AB8B74DC26B49C8E000ED368 /* MobileTestTests */,
 				AB8B74E726B49C8E000ED368 /* MobileTestUITests */,
 				AB8B74C426B49C8C000ED368 /* Products */,
+				AB8B74F626B49D30000ED368 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +147,14 @@
 			path = MobileTestUITests;
 			sourceTree = "<group>";
 		};
+		AB8B74F626B49D30000ED368 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB97A84126B4A01B00F969E9 /* UserLeapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +165,7 @@
 				AB8B74BF26B49C8C000ED368 /* Sources */,
 				AB8B74C026B49C8C000ED368 /* Frameworks */,
 				AB8B74C126B49C8C000ED368 /* Resources */,
+				AB8B74FA26B49D30000ED368 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,6 +401,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -428,6 +458,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -437,6 +468,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/MobileTest",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MobileTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,6 +485,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -455,6 +495,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MobileTest",
+				);
 				INFOPLIST_FILE = MobileTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
